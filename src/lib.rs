@@ -47,16 +47,16 @@
 //! dlls from your Vcpkg installation to be available in your path.
 //!
 //! ## WASM 32
-//! 
+//!
 //! At this time, vcpkg has a single triplet for wasm32, wasm32-emscripten,
 //! while rust has several targets for wasm32.
 //! Currently all of these targets are mapped to wasm32-emscripten triplet.
-//! 
+//!
 //! You can open an [issue](https://github.com/mcgoo/vcpkg-rs/issue)
-//! if more wasm32 triplets come to vcpkg. 
-//! And just like other target, it is possibleto select a custom triplet 
+//! if more wasm32 triplets come to vcpkg.
+//! And just like other target, it is possibleto select a custom triplet
 //! using the `VCPKGRS_TRIPLET` environment variable.
-//! 
+//!
 //! # Environment variables
 //!
 //! A number of environment variables are available to globally configure which
@@ -1361,7 +1361,7 @@ fn detect_target_triplet() -> Result<TargetTriplet, Error> {
             lib_suffix: "a".into(),
             strip_lib_prefix: true,
         })
-    } else if target == "x86_64-unknown-linux-gnu" {
+    } else if target == "x86_64-unknown-linux-gnu" || target == "x86_64-unknown-linux-musl" {
         Ok(TargetTriplet {
             triplet: "x64-linux".into(),
             is_static: true,
